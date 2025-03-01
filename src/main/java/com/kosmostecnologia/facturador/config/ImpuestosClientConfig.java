@@ -48,7 +48,6 @@ public class ImpuestosClientConfig {
         return new ServicioFacturacionCodigosSoapBindingStub(new URL(service.getServicioFacturacionCodigosPortAddress()),service);
     }
 
-
     @Bean
     bo.gob.impuestos.siat.ServicioFacturacionSincronizacion servicioFacturacionSincronizacion() throws AxisFault, MalformedURLException{
         ServicioFacturacionSincronizacion service = new ServicioFacturacionSincronizacionLocator(){
@@ -70,6 +69,7 @@ public class ImpuestosClientConfig {
         };
         return new ServicioFacturacionSincronizacionSoapBindingStub(new URL(service.getServicioFacturacionSincronizacionPortAddress()), service);
     }
+
     @Bean
     public bo.gob.impuestos.siat.ServicioFacturacion servicioFacturacion() throws AxisFault, MalformedURLException {
         ServicioFacturacion service = new ServicioFacturacionLocator() {
@@ -89,7 +89,5 @@ public class ImpuestosClientConfig {
         };
         return new ServicioFacturacionSoapBindingStub(new URL(service.getServicioFacturacionPortAddress()), service);
     }
-
-
 
 }
