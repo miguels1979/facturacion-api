@@ -6,9 +6,12 @@ import com.kosmostecnologia.facturador.persistence.crud.CuisCrudRepository;
 import com.kosmostecnologia.facturador.persistence.entity.CuisEntity;
 import com.kosmostecnologia.facturador.persistence.entity.PuntoVentaEntity;
 import com.kosmostecnologia.facturador.persistence.mapper.CuisMapper;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
+@Repository
 public class CuisRepository implements ICuisRepository {
 
     private final CuisMapper cuisMapper;
@@ -28,5 +31,10 @@ public class CuisRepository implements ICuisRepository {
         cuis.setPuntoVenta(puntoVenta);
 
         this.cuisCrudRepository.save(cuis);
+    }
+
+    @Override
+    public Optional<CuisEntity> findActual(PuntoVentaEntity puntoVenta) {
+        return Optional.empty();
     }
 }
