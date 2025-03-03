@@ -35,6 +35,6 @@ public class CuisRepository implements ICuisRepository {
 
     @Override
     public Optional<CuisEntity> findActual(PuntoVentaEntity puntoVenta) {
-        return Optional.empty();
+        return this.cuisCrudRepository.findByPuntoVentaAndVigente(puntoVenta,true);
     }
 }
