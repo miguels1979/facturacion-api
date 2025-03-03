@@ -1,5 +1,6 @@
 package com.kosmostecnologia.facturador.application.rest.controller;
 
+import com.kosmostecnologia.facturador.domain.service.CufdService;
 import com.kosmostecnologia.facturador.domain.service.CuisService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,14 +15,22 @@ import java.rmi.RemoteException;
 public class CodigosController {
 
     private final CuisService cuisService;
+    private final CufdService cufdService;
 
-    public CodigosController(CuisService cuisService) {
+    public CodigosController(CuisService cuisService,CufdService cufdService ) {
         this.cuisService = cuisService;
+        this.cufdService = cufdService;
     }
 
     @PostMapping("/obtener-cuis/{idPuntoVenta}")
     public ResponseEntity<Object> obtenerCuis(@PathVariable("idPuntoVenta") Integer idPuntoVenta) throws RemoteException {
         this.cuisService.obtenerCuis(idPuntoVenta);
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/obtener-cufd/{idPuntoVenta}")
+    public ResponseEntity<Object> obtenerCufd(@PathVariable("idPuntoVenta") Integer idPuntoVenta) throws RemoteException {
+        this.cufdService.obtenerCufd(idPuntoVenta);
         return ResponseEntity.ok().build();
     }
 }

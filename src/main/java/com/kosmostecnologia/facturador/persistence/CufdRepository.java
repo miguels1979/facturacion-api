@@ -8,9 +8,11 @@ import com.kosmostecnologia.facturador.persistence.entity.CufdEntity;
 import com.kosmostecnologia.facturador.persistence.entity.CuisEntity;
 import com.kosmostecnologia.facturador.persistence.entity.PuntoVentaEntity;
 import com.kosmostecnologia.facturador.persistence.mapper.CufdMapper;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 
+@Repository
 public class CufdRepository implements ICufdRepository {
 
     private final CufdMapper cufdMapper;

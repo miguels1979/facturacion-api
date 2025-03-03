@@ -11,9 +11,11 @@ import com.kosmostecnologia.facturador.domain.repository.ICuisRepository;
 import com.kosmostecnologia.facturador.domain.repository.IPuntoVentaRepository;
 import com.kosmostecnologia.facturador.persistence.entity.CuisEntity;
 import com.kosmostecnologia.facturador.persistence.entity.PuntoVentaEntity;
+import org.springframework.stereotype.Service;
 
 import java.rmi.RemoteException;
 
+@Service
 public class CufdService {
 
     private final IPuntoVentaRepository puntoVentaRepository;
