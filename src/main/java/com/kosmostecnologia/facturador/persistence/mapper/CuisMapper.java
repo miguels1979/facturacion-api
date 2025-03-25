@@ -6,6 +6,5 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring",uses = {CuisMapper.class})
 public interface CuisMapper {
-
     CuisEntity toCuisEntity(RespuestaCuis respuestaCuis);
 }
