@@ -2,10 +2,8 @@ package com.kosmostecnologia.facturador.persistence;
 
 import bo.gob.impuestos.siat.RespuestaCufd;
 import com.kosmostecnologia.facturador.domain.repository.ICufdRepository;
-import com.kosmostecnologia.facturador.domain.service.CufdService;
 import com.kosmostecnologia.facturador.persistence.crud.CufdCrudRepository;
 import com.kosmostecnologia.facturador.persistence.entity.CufdEntity;
-import com.kosmostecnologia.facturador.persistence.entity.CuisEntity;
 import com.kosmostecnologia.facturador.persistence.entity.PuntoVentaEntity;
 import com.kosmostecnologia.facturador.persistence.mapper.CufdMapper;
 import org.springframework.stereotype.Repository;
@@ -35,9 +33,6 @@ public class CufdRepository implements ICufdRepository {
 
         this.cufdCrudRepository.save(cufd);
     }
-
-
-
 
 
 }
