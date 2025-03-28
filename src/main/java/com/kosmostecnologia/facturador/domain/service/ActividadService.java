@@ -42,6 +42,7 @@ public class ActividadService {
 
     }
 
+    //Realiza una validación si trae los mensajes de servicios
     private String obtenerMensajeServicio(MensajeServicio[] mensajeServicioList){
         StringBuilder mensaje = new StringBuilder();
         if(mensajeServicioList != null ){
