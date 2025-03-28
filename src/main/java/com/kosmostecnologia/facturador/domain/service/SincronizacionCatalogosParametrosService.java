@@ -7,6 +7,8 @@ import com.kosmostecnologia.facturador.domain.repository.ICuisRepository;
 import com.kosmostecnologia.facturador.domain.repository.IPuntoVentaRepository;
 import com.kosmostecnologia.facturador.persistence.entity.CuisEntity;
 import com.kosmostecnologia.facturador.persistence.entity.PuntoVentaEntity;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.rmi.RemoteException;
@@ -14,6 +16,8 @@ import java.util.Optional;
 
 @Service
 public class SincronizacionCatalogosParametrosService {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(SincronizacionCatalogosParametrosService.class);
 
     private final AppConfig appConfig;
     private final ActividadService actividadService;
@@ -61,7 +65,10 @@ public class SincronizacionCatalogosParametrosService {
         if(puntoVenta.isEmpty()) throw new ProcessException("Punto venta no encontrado");*/
 
        PuntoVentaEntity puntoVenta = this.puntoVentaRepository.findById(0)
-                .orElseThrow(() -> new ProcessException("Punto venta no encontrado"));
+                .orElseThrow(() -> {
+                    LOGGER.error("Error: Punto venta con ID 0  no encontrado");
+                    return new ProcessException("Punto venta no encontrado");
+                });
 
         /*Optional<CuisEntity>cuis = this.cuisRepository.findActual(puntoVenta.get());
         if(cuis.isEmpty()) throw new ProcessException("Punto venta no encontrado");*/
