@@ -24,4 +24,10 @@ public class SincronizacionController {
         this.sincronizacionService.sincronizarCatalogos();
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/parametros")
+    public ResponseEntity<Void> sincronizarParametros() throws RemoteException {
+        this.sincronizacionService.sincronizarParametros();
+        return ResponseEntity.ok().build();
+    }
 }
