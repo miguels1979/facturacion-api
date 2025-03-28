@@ -17,13 +17,19 @@ public class SincronizacionCatalogosParametrosService {
 
     private final AppConfig appConfig;
     private final ActividadService actividadService;
+    private final ActividadDocumentoSectorService actividadDocumentoSectorService;
+    private final LeyendaService leyendaService;
+    private final ProductoServicioService productoServicioService;
     private final IPuntoVentaRepository puntoVentaRepository;
     private final ICuisRepository cuisRepository;
 
-    public SincronizacionCatalogosParametrosService(AppConfig appConfig,ActividadService actividadService,IPuntoVentaRepository puntoVentaRepository,
-            ICuisRepository cuisRepository) {
+    public SincronizacionCatalogosParametrosService(AppConfig appConfig, ActividadService actividadService, ActividadDocumentoSectorService actividadDocumentoSectorService, LeyendaService leyendaService, ProductoServicioService productoServicioService, IPuntoVentaRepository puntoVentaRepository,
+                                                    ICuisRepository cuisRepository) {
         this.appConfig = appConfig;
         this.actividadService = actividadService;
+        this.actividadDocumentoSectorService = actividadDocumentoSectorService;
+        this.leyendaService = leyendaService;
+        this.productoServicioService = productoServicioService;
         this.puntoVentaRepository = puntoVentaRepository;
         this.cuisRepository = cuisRepository;
     }
@@ -41,6 +47,9 @@ public class SincronizacionCatalogosParametrosService {
         SolicitudSincronizacion solicitudSincronizacion = this.obtenerSolicitud(puntoVenta.get(), cuis.get());
 
         this.actividadService.guardarCatalogos(solicitudSincronizacion);
+        this.actividadDocumentoSectorService.guardarCatalogos(solicitudSincronizacion);
+        this.leyendaService.guardarCatalogos(solicitudSincronizacion);
+        this.productoServicioService.guardarCatalogos(solicitudSincronizacion);
 
     }
 
