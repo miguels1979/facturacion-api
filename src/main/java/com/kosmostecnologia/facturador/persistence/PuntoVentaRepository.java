@@ -23,6 +23,6 @@ public class PuntoVentaRepository implements IPuntoVentaRepository {
 
     @Override
     public Optional<PuntoVentaEntity> findByCodigo(Integer codigo) {
-        return Optional.empty();
+        return this.puntoVentaCrudRepository.findByCodigo(codigo);
     }
 }
