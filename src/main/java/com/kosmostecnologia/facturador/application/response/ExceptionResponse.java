@@ -6,7 +6,7 @@ import lombok.Setter;
 import java.util.List;
 
 @Getter
-@Setter
+@Setter //Clase base de respuesta para excepciones.
 public class ExceptionResponse {
 
     private final String message;
