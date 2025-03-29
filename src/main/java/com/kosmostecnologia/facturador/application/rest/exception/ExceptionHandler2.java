@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import java.rmi.RemoteException;
+
 @ControllerAdvice
 @RestController
 public class ExceptionHandler2 extends ResponseEntityExceptionHandler {
@@ -28,6 +30,13 @@ public class ExceptionHandler2 extends ResponseEntityExceptionHandler {
             exceptionResponse = new ExceptionResponse(e.getMessage());
         }
         return new ResponseEntity<>(exceptionResponse,HttpStatus.CONFLICT);
+    }
+
+    @ExceptionHandler(RemoteException.class)
+    public final ResponseEntity<ExceptionResponse> handleRemoteException(RemoteException e){
+        String errorMensaje = "Error al sincronizar con el servicio externo: " + e.getMessage();
+        ExceptionResponse exceptionResponse = new ExceptionResponse(errorMensaje);
+        return new ResponseEntity<>(exceptionResponse, HttpStatus.SERVICE_UNAVAILABLE);
     }
 
 }
