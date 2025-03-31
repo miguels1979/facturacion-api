@@ -19,6 +19,6 @@ import java.util.List;
 @XmlRootElement(name = "facturaElectronicaCompraVenta")
 public class FacturaElectronicaCompraVenta {
 
-    private CabeceraCompraVenta cabeceraCompraVenta;
+    private CabeceraCompraVenta cabecera;
     private List<DetalleCompraVenta> detalle;
 }

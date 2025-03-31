@@ -9,6 +9,7 @@ import com.kosmostecnologia.facturador.persistence.mapper.CufdMapper;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.Optional;
 
 @Repository
 public class CufdRepository implements ICufdRepository {
@@ -34,5 +35,8 @@ public class CufdRepository implements ICufdRepository {
         this.cufdCrudRepository.save(cufd);
     }
 
-
+    @Override
+    public Optional<CufdEntity> findActual(PuntoVentaEntity puntoVenta) {
+        return this.cufdCrudRepository.findByPuntoVentaAndVigente(puntoVenta, true);
+    }
 }

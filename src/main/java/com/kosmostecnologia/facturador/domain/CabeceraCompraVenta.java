@@ -146,10 +146,10 @@ public class CabeceraCompraVenta {
 
     public static class Builder{
 
-        private CabeceraCompraVenta cabeceraCompraVenta;
+        private final CabeceraCompraVenta cabeceraCompraVenta;
 
-        public Builder(CabeceraCompraVenta cabeceraCompraVenta) {
-            this.cabeceraCompraVenta = cabeceraCompraVenta;
+        public Builder() {
+            cabeceraCompraVenta = new CabeceraCompraVenta();
         }
 
         public Builder buildEmpresa(PuntoVentaEntity puntoVenta){
